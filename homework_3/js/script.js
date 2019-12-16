@@ -44,6 +44,7 @@ console.log(cnt);
 
 //task 5
 let weights = [2, 7, 4, 11, 8, 4];
+/*
 while(weights.length > 1) {
     let max1 = Math.max(...weights);
     weights.splice(weights.indexOf(max1),1);
@@ -53,6 +54,22 @@ while(weights.length > 1) {
     if (res != 0)
         weights.push(res);
 }
+*/
+let max1 = weights[0];
+let max2 = weights[0];
+while(weights.length > 1) {
+    for (let i = 0; i < weights.length; i++) {
+        if (weights[i] > max1)
+            max1 = weights[i];
+        else if (weights[i] > max2)
+            max2 = weights[i];
+    }
+    let res = Math.abs(max1-max2);
+
+    if (res != 0)
+        weights.push(res);   
+}
+
 if (weights.length < 1) 
     console.log(0);
 else console.log(weights);
